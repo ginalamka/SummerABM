@@ -25,5 +25,6 @@ colnames(replicates) = c("maxage", "timeperiod", "broodsize", "k", "sexratio", "
 
 #run model iterating over parameters in replicates
 for(r in 1:nrow(replicates)){
-  RunModel(replicates, r, directory)
+  POPULATION = RunModel(replicates, r, directory)
 }
+write.table(POPULATION, paste(directory, "/output/coverpop.txt", sep=""), sep="/t", col.names=F, row.names=F)
